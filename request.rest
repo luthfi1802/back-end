@@ -1,0 +1,452 @@
+POST http://localhost:5800/apkcmm
+Content-Type: application/json
+
+{
+    "vm_id":"sovp002",
+    "ip_public": "jpjsp2ore0ew",
+    "port_int": "vsdvdio2scx",
+    "port_ext": "fweesdjo",
+    "domain": "zosdjvosd",
+    "appname": " xsdjpvosxcvx",
+    "username": "dscsvscihsodxcd",
+    "password": "fioss"
+}
+
+###
+GET http://localhost:5800/apkcmm
+
+###
+PATCH  http://localhost:5800/apkcmm/1
+Content-Type: application/json
+
+{
+    "vm_id": "678",
+    "ip_public": "203.204.205",
+    "port_int": "60",
+    "port_ext": "80",
+    "domain": "com",
+    "AppName": "agus",
+    "Username": "bruno",
+    "Password": "12345"
+}
+
+###
+POST http://localhost:5800/apkgap
+Content-Type: application/json
+
+{
+    "vm_id": "3456",
+    "ip_public": "306.407.508",
+    "port_int": "10",
+    "port_ext": "20",
+    "domain": "co.id",
+    "AppName": "asep",
+    "Username": "budi",
+    "Password": "345678"
+}
+
+###
+POST http://localhost:5800/apkputikayo
+Content-Type: application/json
+
+{
+    "vm_id": "10000",
+    "ip_public": "19121.2311",
+    "port_int": "230",
+    "port_ext": "40",
+    "domain": "id",
+    "AppName": "seepuh",
+    "Username": "aye",
+    "Password": "890909"
+}
+
+###
+GET http://localhost:5800/apkputikayo
+
+###
+PATCH http://localhost:5800/apkputikayo/1
+Content-Type: application/json
+
+{
+    "vm_id": "999",
+    "ip_public": "67111.111",
+    "port_int": "711",
+    "port_ext": "2312",
+    "domain": "com",
+    "AppName": "aus",
+    "Username": "bar bar",
+    "Password": "31121323"
+}
+
+###
+GET http://localhost:5800/apksinar12
+
+###
+POST http://localhost:5800/apksinar12
+Content-Type: application/json
+
+{
+    "vm_id": "1899",
+    "ip_public": "6122.222.222",
+    "port_int": "991",
+    "port_ext": "222",
+    "domain": "sad",
+    "AppName": "aus",
+    "Username": "barewar",
+    "Password": "qweqqwqw11"
+}
+
+###
+GET http://localhost:5800/apksr12
+
+###
+POST http://localhost:5800/apksr12 
+Content-Type: application/json
+
+{
+    "vm_id": "1990",
+    "ip_public": "467.532.3255",
+    "port_int": "9011",
+    "port_ext": "3566",
+    "domain": "dess",
+    "AppName": "sus",
+    "Username": "brrr",
+    "Password": "qweqqwqw11"
+}
+
+###
+POST  http://localhost:5800/apkbionac
+Content-Type: application/json
+
+{
+    "vm_id": "idhvis",
+    "ip_public": "21ddqw",
+    "port_int": "3442ff",
+    "port_ext": "bvsduw",
+    "domain": "so329",
+    "appname": "neiow3i",
+    "username": "ovu023",
+    "password": "no2303"
+}
+
+###
+GET  http://localhost:5800/apkbionac
+
+###
+POST http://localhost:5800/dbbion
+Content-Type: application/json
+
+{
+    "host": "didsfi",
+    "users": "o32ocs",
+    "Password": "vdsvew",
+    "database_name": "nvoo93rw",
+    "driver": "smcvopvow"
+}
+
+###
+GET http://localhost:5800/dbbion
+
+###
+GET http://localhost:5800/dombion
+
+###
+GET http://localhost:5800/total-data
+
+
+###
+PATCH  http://localhost:5800/dombion/1
+Content-Type: application/json
+
+{
+    "ip_local": "321.543.6",
+    "ip_public": "456.789.7",
+    "d_omain": "rawrr",
+    "port": "80"
+}
+
+###
+POST http://localhost:5800/users
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "email": "admin@gmail.com",
+    "password": "12345",
+    "confPassword": "12345"
+}
+
+###
+GET http://localhost:5800/users
+
+###
+POST http://localhost:5800/login
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "12345"
+}
+
+###
+GET http://localhost:5800/me
+
+
+###
+DELETE http://localhost:5800/logout
+
+###
+POST http://localhost:5800/mailbion
+Content-Type: application/json
+
+{
+    "nik": "tod12",
+    "nama_karyawan": "nope12",
+    "position_title": "gumer12",
+    "email": "lawak12@gmail.com",
+    "keterangan": "mjamil1",
+    "dept": "1812",
+    "id_organization": "9912"
+}
+
+###
+PATCH  http://localhost:5800/organization/organization1/2
+
+{
+    "name": "hdufhsdususd"
+}
+
+###
+GET  http://localhost:5800/organization/organization/
+
+###
+POST http://localhost:5800/bions
+Content-Type: application/json
+
+{
+    "type": "cbd",
+    "ip_local": "188.123.123",
+    "ip_public": "111.234.115",
+    "os": "ah",
+    "Username": "fayenti",
+    "Password": "12345",
+    "core": "goldline",
+    "ram": "6gb"
+}
+
+###
+POST http://localhost:5800/dbcmm
+Content-Type: application/json
+
+{
+    "host": "cees",
+    "users": "tall",
+    "Password": "8899",
+    "database_name": "hayku",
+    "driver": "pstk"
+}
+
+###
+GET http://localhost:5800/dbcmm
+
+###
+POST http://localhost:5800/domcmm
+Content-Type: application/json 
+
+{
+    "ip_local": "123.776.2",
+    "ip_public": "878.652.2",
+    "d_omain": "wwy",
+    "port": "dadel8"
+}
+
+###
+POST http://localhost:5800/mailcmm
+Content-Type: application/json
+
+{
+    "nik": "truth",
+    "nama_karyawan": "nonod",
+    "position_title": "cikonot",
+    "email": "cikonot12@gmail.com",
+    "keterangan": "putus",
+    "dept": "1918",
+    "id_organization": "181922"
+}
+
+###
+POST http://localhost:5800/orgcmm
+
+{
+    "name": "kang danil"
+}
+
+###
+PATCH  http://localhost:5800/cmms/2
+Content-Type: application/json
+
+{
+    "type": "jju",
+    "ip_local": "77665544",
+    "ip_public": "778899",
+    "os": "rarw",
+    "Username": "puqame",
+    "Password": "998822",
+    "core": "haya",
+    "ram": "8mgb"
+}
+
+###
+PATCH  http://localhost:5800/dbgap/1
+Content-Type: application/json
+
+{
+    "host": "sess",
+    "users": "armor",
+    "Password": "887711",
+    "database_name": "bevqk",
+    "driver": "false"
+}
+
+###
+POST http://localhost:5800/domgap
+Content-Type: application/json
+
+{
+    "ip_local": "32.222.11",
+    "ip_public": "771.114.2",
+    "d_omain": "uididq",
+    "port": "96"
+}
+
+###
+POST http://localhost:5800/mailgap
+Content-Type: application/json
+
+{
+    "nik": "jilat",
+    "nama_karyawan": "lancirik",
+    "position_title": "cikonot",
+    "e_mail": "21puqi@gmail.com",
+    "keterangan": "asu",
+    "dept": "2218",
+    "id_organization": "8762"
+}
+
+###
+POST http://localhost:5800/orggap
+
+{
+    "name": "busabusa"
+}
+
+###
+POST http://localhost:5800/gaps
+Content-Type: application/json
+
+{
+    "type": "hbd",
+    "ip_local": "192.111",
+    "ip_public": "201.123",
+    "os": "pew",
+    "Username": "uyak",
+    "Password": "23456",
+    "core": "pdfkp",
+    "ram": "3489hg"
+}
+
+###
+POST http://localhost:5800/dbsr12
+Content-Type: application/json
+
+{
+    "host": "32rwe",
+    "users": "3231",
+    "Password": "dsfs",
+    "database_name": "s113e",
+    "driver": "sf2112"
+}
+
+###
+POST http://localhost:5800/domsr12
+Content-Type: application/json
+
+{
+    "ip_local": "32efsd.dfsf23",
+    "ip_public": "sdfq321.333",
+    "d_omain": "bgew",
+    "port": "fewr3"
+}
+
+###
+POST http://localhost:5800/mailsr12
+Content-Type: application/json
+
+{
+    "nik": "pe",
+    "nama_karyawan": "pek",
+    "position_title": "eqq12",
+    "e_mail": "dsa2@gmail.com",
+    "keterangan": "dwdw",
+    "dept": "ww21",
+    "id_organization": "kdfld"
+}
+
+###
+POST http://localhost:5800/orgsr12
+
+{
+    "name": "burauk"
+}
+
+###
+POST http://localhost:5800/ssr12
+Content-Type: application/json
+
+{
+    "type": "rqw",
+    "ip_local": "fwe4.1t4rtrrt",
+    "ip_public": "aihiwe",
+    "os": "kje9",
+    "Username": "9ejiiw",
+    "Password": "jfo99",
+    "core": "adbb",
+    "ram": "u329bvg"
+}
+
+###
+POST  http://localhost:5800/apkgap
+Content-Type: application/json
+
+{
+    "vm_id": "88776",
+    "ip_public": "8289.893u3.28",
+    "port_int": "8829",
+    "port_ext": "871",
+    "domain": "uusqq",
+    "appname": "jshsu",
+    "username": "ksihu92",
+    "password": "633877"
+}
+
+###
+POST http://localhost:5800/forgot
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com"
+}
+
+###
+POST  http://localhost:5800/domain/domain3
+Content-Type: application/json
+
+{
+    "ip_local":"646t347r",
+    "ip_public":"shda", 
+    "d_omain":"vdqe", 
+    "port": "21refd"
+}
+
+###
+GET http://localhost:5800/domain/domain3
