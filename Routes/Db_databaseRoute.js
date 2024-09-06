@@ -1,72 +1,104 @@
 import express from "express";
-import { getDb_database,
-    getDb_databaseById,
-    createDb_database,
-    updateDb_database,
-    deleteDb_database,
-    getDb_database1,
-    getDb_database1ById,
-    createDb_database1,
-    updateDb_database1,
-    deleteDb_database1,
-    getDb_database2,
-    getDb_database2ById,
-    createDb_database2,
-    updateDb_database2,
-    deleteDb_database2,
-    getDb_database3,
-    getDb_database3ById,
-    createDb_database3,
-    updateDb_database3,
-    deleteDb_database3,
-    getDb_database4,
-    getDb_database4ById,
-    createDb_database4,
-    updateDb_database4,
-    deleteDb_database4,
-    getDb_database5,
-    getDb_database5ById,
-    createDb_database5,
-    updateDb_database5,
-    deleteDb_database5
- } from "../contollers/Db_database.js";
+import { Db_database,
+    Db_database1,
+    Db_database2,
+    Db_database3,
+    Db_database4,
+    Db_database5
+ } from "../models/Db_databaseModel.js";
 
  const router = express.Router();
 
-router.get('/dbbion', getDb_database)
-router.get('/dbbion/:id', getDb_databaseById)
-router.post('/dbbion', createDb_database)
-router.patch('/dbbion/:id', updateDb_database)
-router.delete('/dbbion/:id', deleteDb_database)
+ router.all('/dbdatabase/:model/:id?', async (req, res) => {
+    const { model, id } = req.params;
+    const { method } = req;
+    const { host, users, Password, database_name, driver } = req.body;
+    const { page = 1, limit = 10 } = req.query; 
 
-router.get('/dbcmm', getDb_database1)
-router.get('/dbcmm/:id', getDb_database1ById)
-router.post('/dbcmm', createDb_database1)
-router.patch('/dbcmm/:id', updateDb_database1)
-router.delete('/dbcmm/:id', deleteDb_database1)
+    let Model;
+    switch (model) {
+        case 'dbdatabase':
+            Model = Db_database;
+            break;
+        case 'dbdatabase1':
+            Model = Db_database1;
+            break;
+        case 'dbdatabase2':
+            Model = Db_database2;
+            break;
+        case 'dbdatabase3':
+            Model = Db_database3;
+            break;
+        case 'dbdatabase4':
+            Model = Db_database4;
+            break;
+        case 'dbdatabase5':
+            Model = Db_database5;
+            break;
+        default:
+            return res.status(400).json({ msg: "Invalid model" });
+    }
 
-router.get('/dbgap', getDb_database2)
-router.get('/dbgap/:id', getDb_database2ById)
-router.post('/dbgap', createDb_database2)
-router.patch('/dbgap/:id', updateDb_database2)
-router.delete('/dbgap/:id', deleteDb_database2)
+    const offset = (parseInt(page, 10) - 1) * parseInt(limit, 10);
+    try {
+        switch (method) {
+            case 'GET':
+                if (id) {
+                    // Ambil domain berdasarkan ID
+                    const dbdatabase = await Model.findByPk(id);
+                    if (!dbdatabase) {
+                        return res.status(404).json({ msg: 'Not Found' });
+                    }
+                    return res.status(200).json(dbdatabase);
+                } else {
+                    // Ambil daftar domain
+                    const response = await Model.findAll({
+                        offset: offset,
+                        limit: parseInt(limit, 10)
+                    });
+                    return res.status(200).json(response);
+                }
 
-router.get('/dbptkayo', getDb_database3)
-router.get('/dbptkayo/:id', getDb_database3ById)
-router.post('/dbptkayo', createDb_database3)
-router.patch('/dbptkayo/:id', updateDb_database3)
-router.delete('/dbptkayo/:id', deleteDb_database3)
+            case 'POST':
+                // Buat data baru
+                await Model.create({ host, users, Password, database_name, driver });
+                return res.status(201).json({ msg: "Berhasil tambah data" });
 
-router.get('/dbsinar12', getDb_database4)
-router.get('/dbsinar12/:id', getDb_database4ById)
-router.post('/dbsinar12', createDb_database4)
-router.patch('/dbsinar12/:id', updateDb_database4)
-router.delete('/dbsinar12/:id', deleteDb_database4)
+            case 'PATCH':
+                if (!id) {
+                    return res.status(400).json({ msg: "ID is required for updating" });
+                }
+                // Cari data berdasarkan ID
+                const dbdatabaseToUpdate = await Model.findByPk(id);
+                if (!dbdatabaseToUpdate) {
+                    return res.status(404).json({ msg: "Data not found" });
+                }
+                // Update data dengan data baru (partial update)
+                await dbdatabaseToUpdate.update({ host, users, Password, database_name, driver });
+                return res.status(200).json({ msg: "Berhasil Update Data" });
 
-router.get('/dbsr12', getDb_database5)
-router.get('/dbsr12/:id', getDb_database5ById)
-router.post('/dbsr12', createDb_database5)
-router.patch('/dbsr12/:id', updateDb_database5)
-router.delete('/dbsr12/:id', deleteDb_database5)
+            case 'DELETE':
+                if (!id) {
+                    return res.status(400).json({ msg: "id tidak ditemukan" });
+                }
+                // Cari data berdasarkan ID
+                const dbdatabaseToDelete = await Model.findByPk(id);
+                if (!dbdatabaseToDelete) {
+                    return res.status(404).json({ msg: "Data not found" });
+                }
+                // Hapus data
+                await dbdatabaseToDelete.destroy();
+                return res.status(200).json({ msg: "Berhasil Menghapus Data" });
+
+            default:
+                return res.status(405).json({ msg: "Method Not Allowed" });
+        }
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).json({ msg: 'Failed', error: error.message });
+    }
+});
+
+
 
 export default router;

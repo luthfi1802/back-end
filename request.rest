@@ -1,15 +1,15 @@
-POST http://localhost:5800/apkcmm
+POST http://localhost:5800/aplikasi/aplikasi
 Content-Type: application/json
 
 {
-    "vm_id":"sovp002",
-    "ip_public": "jpjsp2ore0ew",
-    "port_int": "vsdvdio2scx",
-    "port_ext": "fweesdjo",
-    "domain": "zosdjvosd",
-    "appname": " xsdjpvosxcvx",
-    "username": "dscsvscihsodxcd",
-    "password": "fioss"
+    "vm_id":"2e",
+    "ip_public": "afq",
+    "port_int": "wdd",
+    "port_ext": "das",
+    "domain": "asd",
+    "appname": " 1e3r",
+    "username": "grwq",
+    "password": "vds"
 }
 
 ###
@@ -130,25 +130,28 @@ Content-Type: application/json
 }
 
 ###
-GET  http://localhost:5800/apkbionac
+GET  http://localhost:5800/dbdatabase/dbdatabase4
 
 ###
-POST http://localhost:5800/dbbion
+DELETE  http://localhost:5800/organization/organization/8
+
+###
+POST http://localhost:5800/dbdatabase/dbdatabase4
 Content-Type: application/json
 
 {
-    "host": "didsfi",
-    "users": "o32ocs",
-    "Password": "vdsvew",
-    "database_name": "nvoo93rw",
-    "driver": "smcvopvow"
+    "host": "fdf13",
+    "users": "3y83d",
+    "Password": "sdivhsiod",
+    "database_name": "vd",
+    "driver": "3f2o9"
 }
 
 ###
-GET http://localhost:5800/dbbion
+GET http://localhost:5800/dbdatabase/dbdatabase2
 
 ###
-GET http://localhost:5800/dombion
+GET http://localhost:5800/domain/domain3
 
 ###
 GET http://localhost:5800/total-data
@@ -356,7 +359,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:5800/dbsr12
+POST http://localhost:5800/dbdatabase/dbdatabase
 Content-Type: application/json
 
 {
@@ -366,6 +369,9 @@ Content-Type: application/json
     "database_name": "s113e",
     "driver": "sf2112"
 }
+
+###
+GET  http://localhost:5800/dbdatabase/dbdatabase
 
 ###
 POST http://localhost:5800/domsr12

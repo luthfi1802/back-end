@@ -12,7 +12,8 @@ const router = express.Router();
 router.all('/domain/:model/:id?', async (req, res) => {
     const { model, id } = req.params;
     const { method } = req;
-    const { ip_local,ip_public, d_omain, port } = req.body
+    const { ip_local,ip_public, d_omain, port } = req.body;
+    const { page = 1 , limit = 10 } = req.query;
 
     let Model;
     switch (model) {
@@ -38,6 +39,7 @@ router.all('/domain/:model/:id?', async (req, res) => {
             return res.status(400).json({ msg: "Invalid model" });
     }
 
+    const offset = (parseInt(page, 10) -1 ) * (parseInt(limit, 10)) 
     try {
         switch (method) {
             case 'GET':
@@ -51,13 +53,16 @@ router.all('/domain/:model/:id?', async (req, res) => {
                 } else {
                     // Ambil daftar domain
                     const response = await Model.findAll({
-                        offset: 0,
-                        limit: 10
+                        offset: offset,
+                        limit: parseInt(limit, 10)
                     });
                     return res.status(200).json(response);
                 }
 
             case 'POST':
+                // if (!ip_local || !ip_public || !d_omain || !port ) {
+                //     return res.status(400).json({ msg: "Harap Masukan data" });
+                // }
                 // Buat domain baru
                 await Model.create({ ip_local,ip_public, d_omain, port });
                 return res.status(201).json({ msg: "Berhasil Cuyy" });

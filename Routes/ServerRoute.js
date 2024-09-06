@@ -1,72 +1,104 @@
 import express from "express";
-import { getServers,
-    getServersById,
-    createServers,
-    updateServers,
-    deleteServers,
-    getServers1,
-    getServers1ById,
-    createServers1,
-    updateServers1,
-    deleteServers1,
-    getServers2,
-    getServers2ById,
-    createServers2,
-    updateServers2,
-    deleteServers2,
-    getServers3,
-    getServers3ById,
-    createServers3,
-    updateServers3,
-    deleteServers3,
-    getServers4,
-    getServers4ById,
-    createServers4,
-    updateServers4,
-    deleteServers4,
-    getServers5,
-    getServers5ById,
-    createServers5,
-    updateServers5,
-    deleteServers5
- } from "../contollers/Server.js";
+import { Servers,
+    Servers1,
+    Servers2,
+    Servers3,
+    Servers4,
+    Servers5
+ } from "../models/ServerModel.js";
 
 const router = express.Router();
 
-router.get('/bions', getServers)
-router.get('/bions/:id', getServersById)
-router.post('/bions', createServers)
-router.patch('/bions/:id', updateServers)
-router.delete('/bions/:id', deleteServers)
+router.all('/servers/:model/:id?', async (req, res) => {
+    const { model, id } = req.params;
+    const { method } = req;
+    const { type, ip_local, ip_public, os, Username, Password, core, ram } = req.body
 
-router.get('/cmms', getServers1)
-router.get('/cmms/:id', getServers1ById)
-router.post('/cmms', createServers1)
-router.patch('/cmms/:id', updateServers1)
-router.delete('/cmms/:id', deleteServers1)
+    let Model;
+    switch (model) {
+        case 'servers':
+            Model = Servers;
+            break;
+        case 'servers1':
+            Model = Servers1;
+            break;
+        case 'servers2':
+            Model = Servers2;
+            break;
+        case 'servers3':
+            Model = Servers3;
+            break;
+        case 'servers4':
+            Model = Servers4;
+            break;
+        case 'servers5':
+            Model = Servers5;
+            break;
+        default:
+            return res.status(400).json({ msg: "Invalid model" });
+    }
 
-router.get('/gaps', getServers2)
-router.get('/gaps/:id', getServers2ById)
-router.post('/gaps', createServers2)
-router.patch('/gaps/:id', updateServers2)
-router.delete('/gaps/:id', deleteServers2)
+    try {
+        switch (method) {
+            case 'GET':
+                if (id) {
+                    // Ambil data berdasarkan ID
+                    const server = await Model.findByPk(id);
+                    if (!server) {
+                        return res.status(404).json({ msg: 'Not Found' });
+                    }
+                    return res.status(200).json(server);
+                } else {
+                    // get seluruh data
+                    const response = await Model.findAll({
+                        offset: 0,
+                        limit: 10
+                    });
+                    return res.status(200).json(response);
+                }
 
-router.get('/ptkayos', getServers3)
-router.get('/ptkayos/:id', getServers3ById)
-router.post('/ptkayos', createServers3)
-router.patch('/ptkayos/:id', updateServers3)
-router.delete('/ptkayos/:id', deleteServers3)
+            case 'POST':
+                // if (!type || !ip_local || !ip_public || !os || !Username || !Password || !core || !ram) {
+                //     return res.status(400).json({ msg: "All fields are required" });
+                // }
+                // Buat data baru
+                await Model.create({ type, ip_local, ip_public, os, Username, Password, core, ram });
+                return res.status(201).json({ msg: "Berhasil tambah data" });
 
-router.get('/sinars12', getServers4)
-router.get('/sinars12/:id', getServers4ById)
-router.post('/sinars12', createServers4)
-router.patch('/sinars12/:id', updateServers4)
-router.delete('/sinars12/:id', deleteServers4)
+            case 'PATCH':
+                if (!id) {
+                    return res.status(400).json({ msg: "ID is required for updating" });
+                }
+                // Cari data berdasarkan ID
+                const serverToUpdate = await Model.findByPk(id);
+                if (!serverToUpdate) {
+                    return res.status(404).json({ msg: "Data not found" });
+                }
+                // Update data dengan data baru 
+                await serverToUpdate.update({ type, ip_local, ip_public, os, Username, Password, core, ram });
+                return res.status(200).json({ msg: "Berhasil Update Data" });
 
-router.get('/ssr12', getServers5)
-router.get('/ssr12/:id', getServers5ById)
-router.post('/ssr12', createServers5)
-router.patch('/ssr12/:id', updateServers5)
-router.delete('/ssr12/:id', deleteServers5)
+            case 'DELETE':
+                if (!id) {
+                    return res.status(400).json({ msg: "id tidak ditemukan" });
+                }
+                // Cari data berdasarkan ID
+                const serverToDelete = await Model.findByPk(id);
+                if (!serverToDelete) {
+                    return res.status(404).json({ msg: "Data not found" });
+                }
+                // Hapus data
+                await serverToDelete.destroy();
+                return res.status(200).json({ msg: "Berhasil Menghapus Data" });
+
+            default:
+                return res.status(405).json({ msg: "Method Not Allowed" });
+        }
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).json({ msg: 'Failed', error: error.message });
+    }
+});
+
 
 export default router;

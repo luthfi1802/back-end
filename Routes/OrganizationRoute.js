@@ -51,7 +51,7 @@ router.all('/organization/:model/:id?', async (req, res) => {
                         }
                         return res.status(200).json(organization);
                     } else {
-                        // Ambil daftar organisasi
+                        // Ambil data seluruh organisasi
                         const response = await Model.findAll({
                             offset: 0,
                             limit: 10
@@ -60,6 +60,9 @@ router.all('/organization/:model/:id?', async (req, res) => {
                     }
 
                 case 'POST':
+                    // if (!name) {
+                    //     return res.status(400).json({ msg: "All fields are required" });
+                    // }
                     // Buat organisasi baru
                     await Model.create({ name });
                     return res.status(201).json({ msg: "Berhasil Cuyy" });

@@ -34,6 +34,13 @@ import { Servers,
     Servers4,
     Servers5
  } from "../models/ServerModel.js";
+ import { Organization,
+    Organization1,
+    Organization2,
+    Organization3,
+    Organization4,
+    Organization5
+  } from "../models/OrganizationModel.js";
 // import { bionacure, dbcmm, dbgap, dbputikayo, dbsinar12, dbsr12 } from "../config/database.js";
 
 const router = express.Router();
@@ -76,11 +83,19 @@ router.get('/total-data', async (req, res) => {
         const countServers4 = await Servers4.count();
         const countServers5 = await Servers5.count();
 
+        const countOrganization = await Organization.count();
+        const countOrganization1 = await Organization1.count();
+        const countOrganization2 = await Organization2.count();
+        const countOrganization3 = await Organization3.count();
+        const countOrganization4 = await Organization4.count();
+        const countOrganization5 = await Organization5.count();
+
         const totalEmail = countEmail_ + countEmail_1 + countEmail_2 + countEmail_3 + countEmail_4 + countEmail_5;
         const totalAplikasi = countAplikasi + countAplikasi1 + countAplikasi2 + countAplikasi3 + countAplikasi4 + countAplikasi5;
         const totalDb_database = countDb_database + countDb_database1 + countDb_database2 + countDb_database3 + countDb_database4 + countDb_database5;
         const totalDomain = countDomain + countDomain1 + countDomain2 + countDomain3 + countDomain4 + countDomain5;
         const totalServers = countServers + countServers1 + countServers2 + countServers3 + countServers4 + countServers5;
+        const totalOrganization = countOrganization + countOrganization1 + countOrganization2 + countOrganization3 + countOrganization4 + countOrganization5;
 
         // Kirim respons dengan jumlah total data
         // res.status(200).json({
@@ -114,7 +129,8 @@ router.get('/total-data', async (req, res) => {
             totalDb_database,
             totalDomain,
             totalEmail,
-            totalServers
+            totalServers,
+            totalOrganization
         });
     } catch (error) {
         console.error('Terjadi kesalahan:', error);
