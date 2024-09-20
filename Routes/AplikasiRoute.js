@@ -74,7 +74,7 @@ router.all('/aplikasi/:model/:id?', async (req, res) => {
                 if (!aplikasiToUpdate) {
                     return res.status(404).json({ msg: "Data not found" });
                 }
-                // Update data dengan data baru (partial update)
+                // Update data dengan data baru 
                 await aplikasiToUpdate.update({ vm_id, ip_public, port_int, port_ext, domain, appname, username, password });
                 return res.status(200).json({ msg: "Berhasil Update Data" });
 

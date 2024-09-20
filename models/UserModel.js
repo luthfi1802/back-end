@@ -34,6 +34,10 @@ const Users = bionacure.define('users', {
             notEmpty:true
         }
     },
+    resetPasswordLink:{
+        type: DataTypes.STRING,
+        defaultValue: ''
+    }
 }, {
     freezeTableName: true
 });

@@ -12,7 +12,8 @@ const router = express.Router();
 router.all('/servers/:model/:id?', async (req, res) => {
     const { model, id } = req.params;
     const { method } = req;
-    const { type, ip_local, ip_public, os, Username, Password, core, ram } = req.body
+    const { type, ip_local, ip_public, os, Username, Password, core, ram, hdd } = req.body;
+    const { page = 1, limit = 10 } = req.query; 
 
     let Model;
     switch (model) {
@@ -38,6 +39,7 @@ router.all('/servers/:model/:id?', async (req, res) => {
             return res.status(400).json({ msg: "Invalid model" });
     }
 
+    const offset = (parseInt(page, 10) - 1) * parseInt(limit, 10);
     try {
         switch (method) {
             case 'GET':
@@ -51,8 +53,8 @@ router.all('/servers/:model/:id?', async (req, res) => {
                 } else {
                     // get seluruh data
                     const response = await Model.findAll({
-                        offset: 0,
-                        limit: 10
+                        offset: offset,
+                        limit: parseInt(limit, 10)
                     });
                     return res.status(200).json(response);
                 }
@@ -62,7 +64,7 @@ router.all('/servers/:model/:id?', async (req, res) => {
                 //     return res.status(400).json({ msg: "All fields are required" });
                 // }
                 // Buat data baru
-                await Model.create({ type, ip_local, ip_public, os, Username, Password, core, ram });
+                await Model.create({ type, ip_local, ip_public, os, Username, Password, core, ram, hdd });
                 return res.status(201).json({ msg: "Berhasil tambah data" });
 
             case 'PATCH':
@@ -75,7 +77,7 @@ router.all('/servers/:model/:id?', async (req, res) => {
                     return res.status(404).json({ msg: "Data not found" });
                 }
                 // Update data dengan data baru 
-                await serverToUpdate.update({ type, ip_local, ip_public, os, Username, Password, core, ram });
+                await serverToUpdate.update({ type, ip_local, ip_public, os, Username, Password, core, ram, hdd });
                 return res.status(200).json({ msg: "Berhasil Update Data" });
 
             case 'DELETE':

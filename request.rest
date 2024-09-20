@@ -136,22 +136,22 @@ GET  http://localhost:5800/dbdatabase/dbdatabase4
 DELETE  http://localhost:5800/organization/organization/8
 
 ###
-POST http://localhost:5800/dbdatabase/dbdatabase4
+POST http://localhost:5800/dbdatabase/dbdatabase2
 Content-Type: application/json
 
 {
-    "host": "fdf13",
-    "users": "3y83d",
-    "Password": "sdivhsiod",
-    "database_name": "vd",
-    "driver": "3f2o9"
+    "host": "yuuu",
+    "users": "uiwe",
+    "Password": "er2",
+    "database_name": "rg3r",
+    "driver": "vdfs"
 }
 
 ###
 GET http://localhost:5800/dbdatabase/dbdatabase2
 
 ###
-GET http://localhost:5800/domain/domain3
+GET http://localhost:5800/servers/servers4
 
 ###
 GET http://localhost:5800/total-data
@@ -169,14 +169,14 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:5800/users
+POST   http://localhost:5800/users
 Content-Type: application/json
 
 {
     "username": "admin",
-    "email": "admin@gmail.com",
-    "password": "12345",
-    "confPassword": "12345"
+    "email": "admiinganteng123@gmail.com",
+    "password": "123456",
+    "confPassword": "123456"
 }
 
 ###
@@ -188,39 +188,42 @@ Content-Type: application/json
 
 {
     "username": "admin",
-    "password": "12345"
+    "password": "1234"
 }
 
 ###
 GET http://localhost:5800/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTcyNjEwNDM3MCwiZXhwIjoxNzI2MTA3OTcwfQ.F8hCfLiaFka38nxC4m9OYd8rLMMpWWXXRVdDirhphpk
 
 
 ###
 DELETE http://localhost:5800/logout
 
 ###
-POST http://localhost:5800/mailbion
+POST http://localhost:5800/servers/servers4
 Content-Type: application/json
 
 {
-    "nik": "tod12",
-    "nama_karyawan": "nope12",
-    "position_title": "gumer12",
-    "email": "lawak12@gmail.com",
-    "keterangan": "mjamil1",
-    "dept": "1812",
-    "id_organization": "9912"
+    "type":"udhfuiwdui", 
+    "ip_local":"dfssdf", 
+    "ip_public":"udfsdufb", 
+    "os":"yegyudf", 
+    "Username":"bdhbv2iu23", 
+    "Password":"bjdfbjd", 
+    "core":"bdfyg33", 
+    "ram":"nfef", 
+    "hdd":"njdjdhdu"
 }
 
 ###
-PATCH  http://localhost:5800/organization/organization1/2
+POST  http://localhost:5800/organization/organization
 
 {
-    "name": "hdufhsdususd"
+    "name": "jddhjfd"
 }
 
 ###
-GET  http://localhost:5800/organization/organization/
+GET  http://localhost:5800/organization/organization
 
 ###
 POST http://localhost:5800/bions
@@ -278,10 +281,10 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:5800/orgcmm
+POST http://localhost:5800/organization/organization
 
 {
-    "name": "kang danil"
+    "name": "sdknsdofndo"
 }
 
 ###
@@ -436,15 +439,15 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:5800/forgot
+POST  http://localhost:5800/forgot
 Content-Type: application/json
 
 {
-    "email": "admin@gmail.com"
+    "email": "admiinganteng123@gmail.com"
 }
 
 ###
-POST  http://localhost:5800/domain/domain3
+POST  http://localhost:5800/domain/domain4
 Content-Type: application/json
 
 {
@@ -455,4 +458,4 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5800/domain/domain3
+GET http://localhost:5800/domain/domain4

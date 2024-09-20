@@ -41,7 +41,7 @@ import { Servers,
     Organization4,
     Organization5
   } from "../models/OrganizationModel.js";
-// import { bionacure, dbcmm, dbgap, dbputikayo, dbsinar12, dbsr12 } from "../config/database.js";
+ 
 
 const router = express.Router();
 

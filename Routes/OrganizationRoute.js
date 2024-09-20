@@ -14,6 +14,7 @@ router.all('/organization/:model/:id?', async (req, res) => {
             const { model,id } = req.params;
             const { method } = req;
             const { name } = req.body;
+            const { page = 1 , limit = 10 } = req.query;
     
             // Tentukan model berdasarkan parameter 'model'
             let Model;
@@ -40,6 +41,8 @@ router.all('/organization/:model/:id?', async (req, res) => {
                     return res.status(400).json({ msg: "Invalid model" });
             }
     
+        const offset = (parseInt(page, 10)- 1) * parseInt(limit, 10);
+        
         try {
             switch (method) {
                 case 'GET':
@@ -53,8 +56,8 @@ router.all('/organization/:model/:id?', async (req, res) => {
                     } else {
                         // Ambil data seluruh organisasi
                         const response = await Model.findAll({
-                            offset: 0,
-                            limit: 10
+                            offset: offset,
+                            limit: parseInt(limit, 10)
                         });
                         return res.status(200).json(response);
                     }
@@ -77,7 +80,7 @@ router.all('/organization/:model/:id?', async (req, res) => {
                         return res.status(404).json({ msg: "Organization not found" });
                     }
                     // Update organisasi dengan data baru (partial update)
-                    await organizationToUpdate.update({ name });
+                    await organizationToUpdate.update({  name });
                     return res.status(200).json({ msg: "Berhasil Update Data" });
 
                 case 'DELETE':

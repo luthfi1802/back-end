@@ -33,6 +33,9 @@ const Servers = bionacure.define('servers',{
     },
     ram:{
         type: DataTypes.STRING
+    },
+    hdd:{
+        type: DataTypes.STRING
     }
 }, {
     freezeTableName: true
@@ -61,6 +64,9 @@ const Servers1 = dbcmm.define('servers',{
         type: DataTypes.STRING
     },
     ram:{
+        type: DataTypes.STRING
+    },
+    hdd:{
         type: DataTypes.STRING
     }
 }, {
@@ -91,6 +97,9 @@ const Servers2 = dbgap.define('servers',{
     },
     ram:{
         type: DataTypes.STRING
+    },
+    hdd:{
+        type: DataTypes.STRING
     }
 }, {
     freezeTableName: true
@@ -119,6 +128,9 @@ const Servers3 = dbputikayo.define('servers',{
         type: DataTypes.STRING
     },
     ram:{
+        type: DataTypes.STRING
+    },
+    hdd:{
         type: DataTypes.STRING
     }
 }, {
@@ -149,6 +161,9 @@ const Servers4 = dbsinar12.define('servers',{
     },
     ram:{
         type: DataTypes.STRING
+    },
+    hdd:{
+        type: DataTypes.STRING
     }
 }, {
     freezeTableName: true
@@ -177,6 +192,9 @@ const Servers5 = dbsr12.define('servers',{
         type: DataTypes.STRING
     },
     ram:{
+        type: DataTypes.STRING
+    },
+    hdd:{
         type: DataTypes.STRING
     }
 }, {
